@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion History</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<h2>Your Conversion History</h2>
+
+<table class="table table-bordered">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>From Currency</th>
+          <th>To Currency</th>
+          <th>Amount</th>
+          <th>Converted Amount</th>
+      </tr>
+  </thead>
+  <tbody>
+
+      {% for conversion in conversions %}
+      <tr>
+          <td>{{ conversion.id }}</td>
+          <td>{{ conversion.from_currency }}</td>
+          <td>{{ conversion.to_currency }}</td>
+          <td>{{ conversion.amount }}</td>
+          <td>{{ conversion.result }}</td> 
+      </tr> 
+      {% endfor %}
+
+  </tbody></table>
+
+<a href="{{ url_for('converter') }}" class="btn btn-secondary">Back to Converter</a><br><br>
+
+<a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+
+</div>
+
+</body>
+</html>
+

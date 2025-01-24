@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<h2>Currency Converter</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label>From Currency:</label><br>
+        <input type="text" name="from_currency" placeholder="e.g., USD" class="form-control" required><br>
+
+        <label>To Currency:</label><br>
+        <input type="text" name="to_currency" placeholder="e.g., EUR" class="form-control" required><br>
+
+        <label>Amount:</label><br>
+        <input type="number" step="0.01" placeholder="amount" name="amount" class="form-control"><br>
+
+        <button type="submit" class="btn btn-primary">Convert</button><br><br>
+
+        {% if result %}
+            <p>Converted Amount: {{ result }}</p>
+        {% endif %}
+        
+        <a href="{{ url_for('history') }}" class="btn btn-info">View Conversion History</a><br><br>
+
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+
+      </div>
+
+</form>
+
+</div>
+
+</body>
+</html>
